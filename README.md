@@ -1,5 +1,5 @@
 <h1>DevOps-Tools</h1>
-<p align="justify">Creates an environment with the most common tools used by DevOps engineers. First of all install Ansible over Centos 7 and next launch tools.yaml file. The command to do it is <b>ansible-playbook tools.yaml --extra-vars "ip={ your desired IP }"</b>. Jenkins run directly over the operative system and SonarQube and Nexus 3 run over kubernetes cluste. YAML file has been created using other two GitHub repositorys, <a href="https://github.com/MartiMarch/Ansible.git">Ansible</a> and <a href="https://github.com/MartiMarch/Kubernetes.git">Kubernetes</a></p>
+<p align="justify">Creates an environment with the most common tools used by DevOps engineers. First of all install Ansible over Centos 7 and next launch tools.yaml file. The command to do it is <b>ansible-playbook tools.yaml --extra-vars "ip={ your desired IP }"</b>. Jenkins run directly over the operative system and SonarQube and Nexus 3 run over kubernetes cluster. YAML file has been created using other two GitHub repositorys, <a href="https://github.com/MartiMarch/Ansible.git">Ansible</a> and <a href="https://github.com/MartiMarch/Kubernetes.git">Kubernetes.</a></p>
 <table>
   <tr>
     <th>Tool</th>
