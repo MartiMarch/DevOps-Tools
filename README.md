@@ -11,7 +11,7 @@
   </tr>
   <tr>
     <td>Nexus 3</td>
-    <td><30002/td>
+    <td>30002</td>
   </tr>
   <tr>
     <td>SonarQube</td>
