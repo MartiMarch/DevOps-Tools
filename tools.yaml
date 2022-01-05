@@ -22,6 +22,9 @@
 # Pulsa enter y introduce una frase.
 # ssh-copy-id root@{ip}
 # vi /etc/ansible/hosts
+# En caso de que no funcione:
+# ssh-copy-id -i root@{ip}
+# ansible all -m ping -vvv
 # Añade la IP del ordenador al que quieres apuntar
 # mkdir Ansible
 # ----
