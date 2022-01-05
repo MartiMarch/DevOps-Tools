@@ -216,7 +216,7 @@
   - name: Creando el alias ksys=kubectl -n kube-sys
     lineinfile:
       path: ~/.bashrc
-      line: alias k='kubectl -n kube-system'
+      line: alias ksys='kubectl -n kube-system'
       insertbefore: BOF
 
   - name: Creano carpeta para Helm
@@ -230,6 +230,12 @@
 
   - name: Ejecutando el script
     shell: chdir=/Helm ./get_helm.sh
+    
+  - name: Añadiendo el repositorio de kubernetes-metrics a Helm
+    shell: helm repo add metrics-server https://kubernetes-sigs.github.io/metrics-server/
+    
+  - name: Instalando kubernetes-metrics desde helm
+    shell: helm upgrade --install metrics-server metrics-server/metrics-server
 
   - name: Creando carpeta para los yml de Kubernetes
     shell: mkdir -p /kubernetes
