@@ -237,8 +237,36 @@
   - name: Instalando kubernetes-metrics desde helm
     shell: helm upgrade --install metrics-server metrics-server/metrics-server -n kube-system
     
-  - name: Creando carpeta para los yaml de Kubernetes
-    shell: mkdir -p /kubernetes
+  - name: Parando docker
+    shell: systemctl stop docker
+    
+  - name: Parando kubelete
+    shell: systemctl stop kubelet
+    
+  - name: Purgando iptables I
+    shell: iptables --flush
+  
+  - name: Purgando iptables II
+    shell: iptables -tnat --flush
+    
+  - name: Iniciando kubelete
+    shell: systemctl start kubelet
+
+  - name: Iniciando docker
+    shell: systemctl start docker
+
+  - name: Esperando a que kubernetes arranque
+    pause:
+      seconds: 30
+
+  - name: Matando el deployment de kubernetes-metrics
+    shell: kubectl -n kube-system delete deployment.apps/metrics-server
+  
+  - name: Descargando Deployment para kubernetes-metrics
+    shell: chdir=/kubernetes wget -nc https://raw.githubusercontent.com/MartiMarch/Kubernetes/main/kubernetes-metrics/components.yaml
+    
+  - name: Creando el deployment de kubernetes-metrics
+    shell: chdir=/kubernetes kubectl -n kube-system apply -f components.yaml
 
   - name: Descargando el volumen persistente de nexus 3
     shell: chdir=/kubernetes curl -o ./nexus3-pv.yml "https://raw.githubusercontent.com/MartiMarch/Kubernetes/main/nexu3/nexus3-pv.yml"
@@ -336,11 +364,3 @@
 
   - name: Reiniciando el firewall
     shell: firewall-cmd --reload
-
-  - name: ADVERTENCIA modifica el deployment de kubernetes-metrics en kune-system o ks para dehabilitar el tls
-    ansible.builtin.debug:
-      msg:
-      - "imagePullPolicy: IfNotPresent"
-      - "command:"
-      - "- /metrics-server"
-      - "- --kubelet-insecure-tls"
