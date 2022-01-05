@@ -38,4 +38,7 @@
   <tr>
     <td>Kubernetes</td>
   </tr>
+  <tr>
+    <td>kubernetes-metrics</td>  
+  </tr>
 </table>
