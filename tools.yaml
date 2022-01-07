@@ -414,3 +414,6 @@
     
   - name: Cargando el servicio de Grafana
     shell: chdir=/kubernetes kubectl -n monitoring apply -f prometheus-deployment.yaml
+
+  - name: Cargando el deployment de Grafana
+    shell: chdir=/kubernetes kubectl -n monitoring apply -f grafana-deployment.yaml
