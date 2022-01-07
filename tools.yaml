@@ -271,7 +271,7 @@
     shell: chdir=/kubernetes kubectl -n kube-system apply -f kube-state-metrics-cluster-role.yaml
     
   - name: Creando el service-acount de kube-state-metrics
-    shell: chdir=/kubernetes kubectl -n kube-system apply -f kube-state-metrics-service.yaml
+    shell: chdir=/kubernetes kubectl -n kube-system apply -f kube-state-metrics-service-account.yaml
     
   - name: Creando el servicicio de kube-state-metrics
     shell: chdir=/kubernetes kubectl -n kube-system apply -f kube-state-metrics-service.yaml
