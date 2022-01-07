@@ -47,6 +47,7 @@
 #  SonarQube
 #  Prometheus
 #  kubernetes-metrics
+#  grafana
 # ----
 ---
 - name: Iniciando el entorno
