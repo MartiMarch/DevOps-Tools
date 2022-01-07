@@ -50,3 +50,27 @@
     <td>kubernetes-metrics</td>  
   </tr>
 </table>
+<br>
+<p align="justify">I have modifayed ~/.bashrc file to add some alias and make more comfortable use kubernetes.</a></p>
+<table>
+  <tr>
+    <td>k</td>
+    <td>kubectl</td>
+  </tr>
+  <tr>
+    <td>ksys</td>
+    <td>kubectl -n kube-system</td>
+  </tr>
+  <tr>
+    <td>km</td>
+    <td>kubectl -n monitoring</td>
+  </tr>
+  <tr>
+    <td>ks</td>
+    <td>kubectl -n sonar</td>
+  </tr>
+    <tr>
+    <td>kn</td>
+    <td>kubectl -n nexus3</td>
+  </tr>
+</table>
