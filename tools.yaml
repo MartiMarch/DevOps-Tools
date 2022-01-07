@@ -427,6 +427,9 @@
   - name: Cargando el servicio de Grafana
     shell: chdir=/kubernetes kubectl -n monitoring apply -f prometheus-deployment.yaml
 
+  - name: Creando carpeta para Grafana
+    shell: mkdir -p /grafana
+
   - name: Otorgando permisos a la carpeta de graphana
     shell: chown 472:472 /grafana
 
