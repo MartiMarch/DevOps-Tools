@@ -249,6 +249,36 @@
   - name: Creando el deployment de kubernetes-metrics
     shell: chdir=/kubernetes kubectl -n kube-system apply -f components.yaml
 
+  - name: Descargando el rol de kube-state-metrics
+    shell: chdir=/kubernetes curl -o ./kube-state-metrics-cluster-role-binding.yaml "https://raw.githubusercontent.com/MartiMarch/Kubernetes/main/kube-state-metrics/cluster-role-binding.yaml"
+
+  - name: Descargando el cluster-role de kube-state-metrics
+    shell: chdir=/kubernetes curl -o ./kube-state-metrics-cluster-role.yaml "https://raw.githubusercontent.com/MartiMarch/Kubernetes/main/kube-state-metrics/cluster-role.yaml"
+    
+  - name: Descargando el service-acount de kube-state-metrics
+    shell: chdir=/kubernetes curl -o ./kube-state-metrics-service-account.yaml "https://raw.githubusercontent.com/MartiMarch/Kubernetes/main/kube-state-metrics/service-account.yaml"
+    
+  - name: Descargando el servicio de kube-state-metrics
+    shell: chdir=/kubernetes curl -o ./kube-state-metrics-service.yaml "https://raw.githubusercontent.com/MartiMarch/Kubernetes/main/kube-state-metrics/service.yaml"
+    
+  - name: Descargando el Deployment de kube-state-metrics
+    shell: chdir=/kubernetes curl -o ./kube-state-metrics-deployment.yaml "https://raw.githubusercontent.com/MartiMarch/Kubernetes/main/kube-state-metrics/deployment.yaml"
+
+  - name: Creando el rol de kube-state-metrics
+    shell: chdir=/kubernetes kubectl -n kube-system apply -f kube-state-metrics-cluster-role-binding.yaml
+
+  - name: Creando el cluster-role de kube-state-metrics
+    shell: chdir=/kubernetes kubectl -n kube-system apply -f kube-state-metrics-cluster-role.yaml
+    
+  - name: Creando el service-acount de kube-state-metrics
+    shell: chdir=/kubernetes kubectl -n kube-system apply -f kube-state-metrics-service.yaml
+    
+  - name: Creando el servicicio de kube-state-metrics
+    shell: chdir=/kubernetes kubectl -n kube-system apply -f kube-state-metrics-service.yaml
+
+  - name: Creando el Deployment de kube-state-metrics
+    shell: chdir=/kubernetes kubectl -n kube-system apply -f kube-state-metrics-deployment.yaml
+
   - name: Descargando el volumen persistente de nexus 3
     shell: chdir=/kubernetes curl -o ./nexus3-pv.yml "https://raw.githubusercontent.com/MartiMarch/Kubernetes/main/nexu3/nexus3-pv.yml"
 
