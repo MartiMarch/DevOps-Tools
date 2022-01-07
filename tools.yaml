@@ -45,6 +45,8 @@
 #  Maven
 #  Python 3
 #  SonarQube
+#  Prometheus
+#  kubernetes-metrics
 # ----
 ---
 - name: Iniciando el entorno
@@ -184,28 +186,6 @@
 
   - name: El nodo maestro ahora puede ser un nodo trabajador
     shell: kubectl taint nodes --all node-role.kubernetes.io/master-
-    ignore_errors: yes
-
-  - name: Instalando kubernetes-metrics
-    shell: kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
-
-  - name: Deteniendo Docker
-    shell: systemctl stop docker
-
-  - name: Deteniendo kubelet
-    shell: systemctl stop kubelet
-
-  - name: Purgando iptable I
-    shell: iptables --flush
-
-  - name: Purgando iptable II
-    shell: iptables -tnat --flush
-
-  - name: Iniciando kubelete
-    shell: systemctl start kubelet
-
-  - name: Iniciando Docker
-    shell: systemctl start docker
 
   - name: Creando el alias k=kubectl
     lineinfile:
@@ -219,7 +199,7 @@
       line: alias ksys='kubectl -n kube-system'
       insertbefore: BOF
 
-  - name: Creano carpeta para Helm
+  - name: Creando carpeta para Helm
     shell: mkdir -p /Helm
 
   - name: Descargando Helm 3
