@@ -354,5 +354,11 @@
   - name: Descargando el servicio de Prometheus
     shell: chdir=/kubernetes curl -o ./prometheus-service.yaml "https://raw.githubusercontent.com/MartiMarch/Kubernetes/main/prometheus/prometheus-service.yaml"
     
+  - name: Descargando el volumen persitente de Prometheus
+    shell: chdir=/kubernetes curl -o ./prometheus-pv.yml "https://raw.githubusercontent.com/MartiMarch/Kubernetes/main/prometheus/prometheus-pv.yml"
+    
+  - name: Desscargando la relamación de volumen persitente de prometheus
+    shell: chdir=/kubernetes curl -o ./prometheus-pvc.yml "https://raw.githubusercontent.com/MartiMarch/Kubernetes/main/prometheus/prometheus-pvc.yml"
+  
   - name: Descargando el deployment de Prometheus
     shell: chdir=/kubernetes curl -o ./prometheus-deployment.yaml "https://raw.githubusercontent.com/MartiMarch/Kubernetes/main/prometheus/prometheus-deployment.yaml"
