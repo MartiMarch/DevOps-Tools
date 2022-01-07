@@ -383,3 +383,9 @@
     
   - name: Cargando el deployment de Prometheus
     shell: chdir=/kubernetes kubectl -n monitoring apply -f prometheus-deployment.yaml
+
+  - name: Creando el alias km=kubectl -n monitoring
+    lineinfile:
+      path: ~/.bashrc
+      line: alias km='kubectl -n monitoring'
+      insertbefore: BOF
