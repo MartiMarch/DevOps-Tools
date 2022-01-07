@@ -74,7 +74,11 @@
     <td>kubectl -n nexus3</td>
   </tr>
 </table>
-<p align="justify">kube-metrics crash when the system is restarted. If POD metrics-server-***** crash just execute the next command:
-<br>
-
+<p align="justify">kube-metrics crash when the system is restarted. If POD metrics-server-***** can't be established as running just execute this commands:<br>
+systemctl stop docker<br>
+systemctl stop kubelet<br>
+iptables --flush<br>
+iptables -tnat --flush<br>
+systemctl start kubelet<br>
+systemctl start docker<br>
 </a></p>
