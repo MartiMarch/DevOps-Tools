@@ -277,6 +277,12 @@
   - name: Cargando el Deployment de Nexus 3
     shell: chdir=/kubernetes kubectl -n nexus3 apply -f nexus3-deployment.yaml
 
+  - name: Creando el alias kn=kubectl -n nexus3
+    lineinfile:
+      path: ~/.bashrc
+      line: alias ks='kubectl -n nexus3'
+      insertbefore: BOF
+
   - name: Creando el nombre de espacios para SonarQube
     shell: kubectl create namespace sonar
     ignore_errors: yes
@@ -304,6 +310,12 @@
 
   - name: Cargando el deployment de SonarQube
     shell: chdir=/kubernetes kubectl -n sonar apply -f sonar-deployment.yaml
+
+  - name: Creando el alias ks=kubectl -n sonar
+    lineinfile:
+      path: ~/.bashrc
+      line: alias ks='kubectl -n sonar'
+      insertbefore: BOF
 
   - name: Instalando Python 3
     yum:
