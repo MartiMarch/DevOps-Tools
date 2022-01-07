@@ -389,3 +389,27 @@
       path: ~/.bashrc
       line: alias km='kubectl -n monitoring'
       insertbefore: BOF
+
+  - name: Descargando el servicio de Grafana
+    shell: chdir=/kubernetes curl -o ./grafana-service.yaml "https://raw.githubusercontent.com/MartiMarch/Kubernetes/main/grafana/grafana-service.yaml"
+    
+  - name: Descargando el volumen persitente de Grafana
+    shell: chdir=/kubernetes curl -o ./grafana-pv.yaml "https://raw.githubusercontent.com/MartiMarch/Kubernetes/main/grafana/grafana-pv.yaml"
+    
+  - name: Descargando la reclamacion de volumen persistente de Grafana
+    shell: chdir=/kubernetes curl -o ./grafana-pvc.yaml "https://raw.githubusercontent.com/MartiMarch/Kubernetes/main/grafana/grafana-pvc.yaml"
+    
+  - name: Descargando el deployment de Grafana
+    shell: chdir=/kubernetes curl -o ./grafana-deployment.yaml "https://raw.githubusercontent.com/MartiMarch/Kubernetes/main/grafana/grafana-deployment.yaml"
+    
+  - name: Cargando el servicio de Grafana
+    shell: chdir=/kubernetes kubectl -n monitoring apply -f grafana-service.yaml
+    
+  - name: Cargando el volumen persitente de Grafana
+    shell: chdir=/kubernetes kubectl -n monitoring apply -f grafana-pv.yaml
+    
+  - name: Cargando la reclamacion de volumen persistente de Grafana
+    shell: chdir=/kubernetes kubectl -n monitoring apply -f grafana-pvc.yaml
+    
+  - name: Cargando el servicio de Grafana
+    shell: chdir=/kubernetes kubectl -n monitoring apply -f prometheus-deployment.yaml
