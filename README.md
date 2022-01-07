@@ -11,7 +11,7 @@
   </tr>
   <tr>
     <td>Grafana</td>
-    <td>30001</td>
+    <td>30000</td>
   </tr>
   <tr>
     <td>Prometheus</td>
