@@ -45,4 +45,7 @@
   <tr>
     <td>kubernetes-metrics</td>  
   </tr>
+  <tr>
+    <td>kubernetes-metrics</td>
+  </tr>
 </table>
