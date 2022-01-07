@@ -344,3 +344,15 @@
 
   - name: Reiniciando el firewall
     shell: firewall-cmd --reload
+
+  - name: Descargando ConfigMap de Prometheus
+    shell: chdir=/kubernetes curl -o ./prometheus-configMap.yaml "https://raw.githubusercontent.com/MartiMarch/Kubernetes/main/prometheus/prometheus-configMap.yaml"
+    
+  - name: Descargando el rol de Prometheus
+    shell: chdir=/kubernetes curl -o ./prometheus-role.yaml "https://raw.githubusercontent.com/MartiMarch/Kubernetes/main/prometheus/prometheus-role.yaml"
+    
+  - name: Descargando el servicio de Prometheus
+    shell: chdir=/kubernetes curl -o ./prometheus-service.yaml "https://raw.githubusercontent.com/MartiMarch/Kubernetes/main/prometheus/prometheus-service.yaml"
+    
+  - name: Descargando el deployment de Prometheus
+    shell: chdir=/kubernetes curl -o ./prometheus-deployment.yaml "https://raw.githubusercontent.com/MartiMarch/Kubernetes/main/prometheus/prometheus-deployment.yaml"
