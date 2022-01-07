@@ -74,3 +74,7 @@
     <td>kubectl -n nexus3</td>
   </tr>
 </table>
+<p align="justify">kube-metrics crash when the system is restarted. If POD metrics-server-***** crash just execute the next command:
+<br>
+
+</a></p>
