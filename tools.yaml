@@ -280,7 +280,7 @@
   - name: Creando el alias kn=kubectl -n nexus3
     lineinfile:
       path: ~/.bashrc
-      line: alias ks='kubectl -n nexus3'
+      line: alias kn='kubectl -n nexus3'
       insertbefore: BOF
 
   - name: Creando el nombre de espacios para SonarQube
