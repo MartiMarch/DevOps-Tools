@@ -187,9 +187,6 @@
   - name: Añadiendo el repositorio de kubernetes-metrics a Helm
     shell: helm repo add metrics-server https://kubernetes-sigs.github.io/metrics-server/ -n kube-system
 
-  - name: Instalando kubernetes-metrics desde helm
-    shell: helm upgrade --install metrics-server metrics-server/metrics-server -n kube-system
-
   - name: Parando docker
     shell: systemctl stop docker
 
