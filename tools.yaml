@@ -48,6 +48,7 @@
 #  Prometheus
 #  kubernetes-metrics
 #  Grafana
+#  Tmux
 # ----
 ---
 - name: Iniciando el entorno
@@ -441,3 +442,6 @@
 
   - name: Cargando el deployment de Grafana
     shell: chdir=/kubernetes kubectl -n monitoring apply -f grafana-deployment.yaml
+
+  - name: Instalando Tmux
+    shell: yum install -y tmux
