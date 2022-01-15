@@ -445,3 +445,24 @@
 
   - name: Instalando Tmux
     shell: yum install -y tmux
+
+  - name: Instalando vim
+    shell: yum install -y vim
+
+  - name: Poniendo en vim las tabulaciones a 4 espacios
+    lineinfile:
+      path: ~/.bashrc
+      line: alias ks='kubectl -n sonar'
+      insertbefore: BOF
+
+  - name: Poniendo numeros a vim
+    lineinfile:
+      path: ~/.vimrc
+      line: set number
+      insertbefore: BOF
+
+  - name: Poniendo las tabulaciones a 4 espacios
+    lineinfile:
+      path: ~/.vimrc
+      line: set tabstop=4
+      insertbefore: BOF
