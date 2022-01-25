@@ -51,7 +51,7 @@
   </tr>
 </table>
 <br>
-<p align="justify">I have modifayed ~/.bashrc file to add some alias and make more comfortable use kubernetes.</a></p>
+<p align="justify">I have modified modified ~/.bashrc file to add some alias and make more comfortable use kubernetes.</a></p>
 <table>
   <tr>
     <td>k</td>
