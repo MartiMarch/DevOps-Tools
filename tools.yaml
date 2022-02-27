@@ -254,7 +254,7 @@
     shell: chdir=/kubernetes git clone https://github.com/lisenet/kubernetes-homelab.git
     
   - name: Cargando kube-state-metrics en el sistema
-    shell: chdir=/kubernetes apply -f kubernetes-homelab/kube-state-metrics/
+    shell: chdir=/kubernetes kubectl apply -f kubernetes-homelab/kube-state-metrics/
 
   - name: Descargando el volumen persistente de nexus 3
     shell: chdir=/kubernetes curl -o ./nexus3-pv.yml "https://raw.githubusercontent.com/MartiMarch/Kubernetes/main/nexu3/nexus3-pv.yml"
